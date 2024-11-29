@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption Result</title>
+</head>
+<body>
+    <style>
+        body {
+     background-color: #1a1a1a;
+     color: #ffffff;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     margin: 0;
+     padding: 20px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     min-height: 100vh;
+ }
+ 
+ h1 {
+     color: #00b4d8;
+     text-align: center;
+     margin-bottom: 30px;
+     font-size: 2.5em;
+     text-shadow: 0 0 10px rgba(0, 180, 216, 0.3);
+ }
+ 
+ form {
+     background-color: #2d2d2d;
+     padding: 30px;
+     border-radius: 10px;
+     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+     width: 100%;
+     max-width: 500px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+ }
+ 
+ label {
+     display: block;
+     margin-bottom: 15px;
+     color: #00b4d8;
+     font-size: 1.1em;
+ }
+ 
+ input[type="file"] {
+     background-color: #1a1a1a;
+     color: #ffffff;
+     padding: 10px;
+     border: 2px solid #00b4d8;
+     border-radius: 5px;
+     width: 100%;
+     margin-bottom: 20px;
+     cursor: pointer;
+ }
+ 
+ input[type="file"]::-webkit-file-upload-button {
+     background-color: #00b4d8;
+     color: #1a1a1a;
+     padding: 8px 16px;
+     border: none;
+     border-radius: 4px;
+     cursor: pointer;
+     margin-right: 10px;
+     transition: background-color 0.3s;
+ }
+ 
+ input[type="file"]::-webkit-file-upload-button:hover {
+     background-color: #0096b4;
+ }
+ 
+ button {
+     background-color: #00b4d8;
+     color: #1a1a1a;
+     padding: 12px 24px;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     font-size: 1.1em;
+     font-weight: bold;
+     width: 100%;
+     transition: background-color 0.3s, transform 0.2s;
+     margin: 10px 0;
+     max-width: 500px;
+ }
+ 
+ button:hover {
+     background-color: #0096b4;
+     transform: scale(1.02);
+ }
+ 
+ p {
+     margin-top: 20px;
+     padding: 10px;
+     border-radius: 5px;
+     width: 100%;
+     max-width: 500px;
+     text-align: center;
+ }
+ 
+ p[style*="color: red"] {
+     background-color: rgba(255, 0, 0, 0.1);
+     border: 1px solid #ff3333;
+     color: #ff3333 !important;
+ }
+ 
+ #imagePreview {
+     max-width: 100%;
+     max-height: 300px;
+     margin: 20px auto;
+     border-radius: 5px;
+     display: none;
+ }
+
+ .download-section {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     width: 100%;
+     max-width: 500px;
+     gap: 10px;
+ }
+
+ .download-button {
+     text-decoration: none;
+     width: 100%;
+ }
+ 
+    </style>
+    <h1>{{ message }}</h1>
+    
+    <div class="download-section">
+        <!-- Download buttons -->
+        <a href="{{ encrypted_image_path }}" download class="download-button">
+            <button type="button">Download Encrypted Image</button>
+        </a>
+
+        <a href="{{ aes_key_path }}" download class="download-button">
+            <button type="button">Download AES Key</button>
+        </a>
+
+        <a href="{{ private_key_path }}" download class="download-button">
+            <button type="button">Download Private Key</button>
+        </a>
+
+        <a href="{% url 'decrypt' %}" class="download-button">
+            <button type="button">Go to Decrypt Page</button>
+        </a>
+    </div>
+</body>
+</html>

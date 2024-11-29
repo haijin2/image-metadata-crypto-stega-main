@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decrypted Metadata</title>
+</head>
+<body>
+    <style>
+        body {
+     background-color: #1a1a1a;
+     color: #ffffff;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     margin: 0;
+     padding: 20px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     min-height: 100vh;
+ }
+ 
+ h1 {
+     color: #00b4d8;
+     text-align: center;
+     margin-bottom: 30px;
+     font-size: 2.5em;
+     text-shadow: 0 0 10px rgba(0, 180, 216, 0.3);
+ }
+ 
+ form {
+     background-color: #2d2d2d;
+     padding: 30px;
+     border-radius: 10px;
+     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+     width: 100%;
+     max-width: 500px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+ }
+ 
+ label {
+     display: block;
+     margin-bottom: 15px;
+     color: #00b4d8;
+     font-size: 1.1em;
+ }
+ 
+ input[type="file"] {
+     background-color: #1a1a1a;
+     color: #ffffff;
+     padding: 10px;
+     border: 2px solid #00b4d8;
+     border-radius: 5px;
+     width: 100%;
+     margin-bottom: 20px;
+     cursor: pointer;
+ }
+ 
+ input[type="file"]::-webkit-file-upload-button {
+     background-color: #00b4d8;
+     color: #1a1a1a;
+     padding: 8px 16px;
+     border: none;
+     border-radius: 4px;
+     cursor: pointer;
+     margin-right: 10px;
+     transition: background-color 0.3s;
+ }
+ 
+ input[type="file"]::-webkit-file-upload-button:hover {
+     background-color: #0096b4;
+ }
+ 
+ button {
+     background-color: #00b4d8;
+     color: #1a1a1a;
+     padding: 12px 24px;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     font-size: 1.1em;
+     font-weight: bold;
+     width: 100%;
+     transition: background-color 0.3s, transform 0.2s;
+ }
+ 
+ button:hover {
+     background-color: #0096b4;
+     transform: scale(1.02);
+ }
+ 
+ p {
+     margin-top: 20px;
+     padding: 10px;
+     border-radius: 5px;
+     width: 100%;
+     max-width: 500px;
+     text-align: center;
+ }
+ 
+ p[style*="color: red"] {
+     background-color: rgba(255, 0, 0, 0.1);
+     border: 1px solid #ff3333;
+     color: #ff3333 !important;
+ }
+ 
+ #imagePreview {
+     max-width: 100%;
+     max-height: 300px;
+     margin: 20px auto;
+     border-radius: 5px;
+     display: none;
+ }
+ 
+    </style>
+    <h1>Decryption Successful!</h1>
+    
+    <h2>Decrypted Metadata:</h2>
+    <pre>{{ metadata }}</pre>
+
+    <h3>Decrypted Image:</h3>
+    <p><a href="{{ decrypted_image_url }}" download>Download Decrypted Image</a></p>
+
+    <h3><a href="{% url 'encrypt' %}">Go back to Encrypt Page</a></h3>
+</body>
+</html>
+
